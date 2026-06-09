@@ -1,8 +1,16 @@
 class Solution:
     def arrangeCoins(self, n: int) -> int:
-        dp=[n]
-        i=0
-        while(dp[-1]>=0):
-            i+=1
-            dp.append(dp[-1]-i)
-        return dp[-3]-dp[-2]
+        "binary search applied here"
+        start=0
+        end=n
+        ans=1
+        while(start<=end):
+            mid=end+(start-end)//2
+            total= mid*(mid+1)//2
+
+            if(total<=n):
+                ans=mid
+                start=mid+1
+            else:
+                end=mid-1
+        return ans
