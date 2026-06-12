@@ -1,13 +1,22 @@
 class Solution:
     def integerReplacement(self, n: int) -> int:
-        def recursion(n):
-            if(n==1):
-                return 0 
-            
-            elif(n%2==0):
-                return 1 + recursion(n/2)
-            else:
-                return 1 + min(recursion(n-1),recursion(n+1))
-        return recursion(n)
+        count = 0
 
+        while n != 1:
+            if (n & 1) == 0:          # even
+                n >>= 1
             
+            elif n == 3:
+                n -= 1
+            elif(n&3==3):
+                n+=1
+            elif ((n - 1) & (n - 2)) == 0:
+                n -= 1
+            elif ((n + 1) & n) == 0:
+                n += 1
+            else:
+                n -= 1
+
+            count += 1
+
+        return count
