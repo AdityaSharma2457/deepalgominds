@@ -5,7 +5,8 @@ class Solution:
         ans=[0]*n
         for i in range(n):
             while(stack and temperatures[stack[-1]]<temperatures[i]):
-                ans[stack[-1]]=i-stack[-1]
+                top=stack[-1]
+                ans[top]=i-top
                 stack.pop()
             stack.append(i)
         return ans
