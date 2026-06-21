@@ -10,8 +10,7 @@ class Solution:
         while (head):
             if(head.val==val):
                 prev.next=head.next
-                head=head.next
             else:
-                head=head.next
                 prev=prev.next
+            head=head.next
         return dummy.next
