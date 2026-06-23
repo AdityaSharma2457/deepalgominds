@@ -9,7 +9,7 @@ class Solution:
         ans=[]
         def recur(root):
             if root is None:
-                return ans
+                return 
             recur(root.left)
             ans.append(root.val)
             recur(root.right)
