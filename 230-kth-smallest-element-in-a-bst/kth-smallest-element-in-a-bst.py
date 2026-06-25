@@ -15,9 +15,11 @@ class Solution:
     def func(self, root: Optional[TreeNode],k:int):
         if root is None:
             return 
+        if self.ans is not None:
+            return self.ans
         self.func(root.left,k)
         self.count+=1
         if (self.count==k):
             self.ans=root.val
-            return
+            return self.ans
         self.func(root.right,k)
