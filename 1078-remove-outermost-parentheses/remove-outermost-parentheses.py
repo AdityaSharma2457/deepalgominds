@@ -3,6 +3,7 @@ class Solution:
         stack=[]
         depth=0
         for  i in s:
+            
             if(i=="("):
                if depth>0:
                     stack.append("(")
