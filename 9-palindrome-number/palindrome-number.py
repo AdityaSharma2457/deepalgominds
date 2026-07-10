@@ -5,9 +5,9 @@ class Solution:
         j=len(x)-1
 
         while(i<j):
-            if (x[i]==x[j]):
-                i+=1
-                j-=1
-            else:
+            if (x[i]!=x[j]):
                 return False
+            i+=1
+            j-=1
+                
         return True
