@@ -8,6 +8,5 @@ class Solution:
             if (x[i]!=x[j]):
                 return False
             i+=1
-            j-=1
-                
+            j-=1       
         return True
