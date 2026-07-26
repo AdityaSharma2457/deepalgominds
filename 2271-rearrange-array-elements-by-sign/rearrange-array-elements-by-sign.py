@@ -15,10 +15,5 @@ class Solution:
             ans.append(neg[i])
             i+=1
             j+=1
-        while(i<len(pos)):
-            ans.append(pos[i])
-            i+=1
-        while(i<len(pos)):
-            ans.append(pos[i])
-            i+=1
+
         return ans
