@@ -5,11 +5,11 @@ class Solution:
         ln=len(nums)
 
         ans=[0]*ln
-        for i in range(ln):
-            if nums[i]>0:
-                pos.append(nums[i])
+        for i in nums:
+            if i>0:
+                pos.append(i)
             else:
-                neg.append(nums[i])
+                neg.append(i)
 
         ans[0::2]=pos
         ans[1::2]=neg
