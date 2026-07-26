@@ -3,14 +3,17 @@ class Solution:
         pos=[]
         neg=[]
         ans=[]
-        for i in range(len(nums)):
+        ln=len(nums)
+        for i in range(ln):
             if nums[i]>0:
                 pos.append(nums[i])
             else:
                 neg.append(nums[i])
         i=0
         j=0
-        while(i<len(pos) and j<len(neg)):
+        lp=len(pos)
+        ln=len(neg)
+        while(i<lp and j<ln):
             ans.append(pos[i])
             ans.append(neg[i])
             i+=1
