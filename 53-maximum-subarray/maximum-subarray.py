@@ -2,12 +2,11 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         """
         kadane's algorithm
-        """     
-
-        curr_sum=nums[0]
+        """
+        curr_sum=0
         max_sum=nums[0]
         n=len(nums)
-        for i in range(1,n):
+        for i in range(n):
             if curr_sum<0:
                 curr_sum=0
             curr_sum+=nums[i]
