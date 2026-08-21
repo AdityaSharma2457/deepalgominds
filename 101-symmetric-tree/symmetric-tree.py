@@ -6,12 +6,14 @@
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        def recursion(p,q):
-            if(p is None and q is None):
+        
+        def func(p,q):
+
+            if p is None and q is None:
                 return True
-            elif (p is None or q is None):
+            if p is None or q is None:
                 return False
-            elif(p.val!=q.val):
+            if p.val!=q.val:
                 return False
-            return recursion(p.left,q.right) and recursion(p.right,q.left)
-        return recursion(root.left,root.right)
+            return func(p.left,q.right) and func(p.right,q.left)
+        return func(root.right,root.left)
