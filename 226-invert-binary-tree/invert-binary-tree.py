@@ -6,12 +6,15 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        perm=root
-        if root is None:
-            return 
-        store=root.right
-        root.right=root.left
-        root.left=store
-        self.invertTree(root.left)
-        self.invertTree(root.right)
-        return perm
+        stored_root=root
+        def swapping(root):
+            if root is None:
+                return
+            store=root.right
+            root.right=root.left
+            root.left=store
+
+            swapping(root.left)
+            swapping(root.right) 
+        swapping(root)
+        return stored_root
