@@ -5,21 +5,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
-        self.ans=None
-        self.count=0
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        self.func(root,k) 
-        return self.ans
+        ans=[]
 
-    def func(self, root: Optional[TreeNode],k:int):
-        if root is None:
-            return 
-        if self.ans is not None:
-            return self.ans
-        self.func(root.left,k)
-        self.count+=1
-        if (self.count==k):
-            self.ans=root.val
-            return self.ans
-        self.func(root.right,k)
+        def function(root):
+            if root is None:
+                return 
+            function(root.left)
+            ans.append(root.val)
+            function(root.right)
+        function(root)
+        return ans[k-1]
