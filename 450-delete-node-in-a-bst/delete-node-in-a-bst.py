@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+
         def add_a_node(root,target):
             if root is None:
                 return target
@@ -15,6 +16,7 @@ class Solution:
                 root.right=add_a_node(root.right,target)
             return root
         def delete(root):
+            print("1")
             if root is None:
                 return None
             if key<root.val: 
@@ -23,14 +25,18 @@ class Solution:
                 root.right=delete(root.right)
             elif key==root.val:
                 if root.left and root.right:
+                    
                     store=root.right
                     root=root.left
                     root=add_a_node(root,store)
                 elif root.left:
+                    print("check3")
                     root=root.left
                 elif root.right:
+                    print("check2")
                     root=root.right
                 else:
+                    print("check")
                     root=None
             return root
         return delete(root)
