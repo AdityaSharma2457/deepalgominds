@@ -5,21 +5,27 @@ class Solution:
         c=len(grid[0])
         
         
-        def dfs(r,c):
-            if (r>len(grid)-1 or c>len(grid[0])-1 or r<0 or c<0 or grid[r][c]=="0"):
+        def bfs(i,j):
+            if i<0 or j<0 or j>=c or i>=r :
+                return
+            
+            if grid[i][j]=="0":
                 return
 
-            grid[r][c]="0"
+            grid[i][j]="0"
+            bfs(i-1,j)
+            bfs(i+1,j)
+            bfs(i,j-1)
+            bfs(i,j+1)
 
-            dfs(r,c+1)
-            dfs(r,c-1)
-            dfs(r+1,c)
-            dfs(r-1,c)
+
+
+
+
         count=0
         for i in range(r):
             for j in range(c):
                 if grid[i][j]=="1":
+                    bfs(i,j)
                     count+=1
-                    dfs(i,j)
         return count
-    
