@@ -4,8 +4,13 @@ class Solution:
         nums=nums1+nums2
         nums.sort()
         x=len(nums)
-        if x%2!=0:
-            return nums[math.ceil(x/2)-1]
         
-        else:
-            return (nums[math.ceil(x/2)] + nums[math.ceil(x/2)-1])/2
+        start=0
+        end=x-1
+
+        while(start<=end):
+            mid=start+end/2
+            if mid.is_integer():
+                return nums[int(mid)]
+            else:
+                return (nums[int(mid-0.5)]+nums[int(mid+0.5)])/2
