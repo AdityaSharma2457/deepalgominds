@@ -8,9 +8,9 @@ class Solution:
         start=0
         end=x-1
 
-        while(start<=end):
-            mid=start+end/2
-            if mid.is_integer():
-                return nums[int(mid)]
-            else:
-                return (nums[int(mid-0.5)]+nums[int(mid+0.5)])/2
+        
+        mid=start+end/2
+        if mid.is_integer():
+            return nums[int(mid)]
+        else:
+            return (nums[int(mid-0.5)]+nums[int(mid+0.5)])/2
